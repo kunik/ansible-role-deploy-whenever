@@ -1,5 +1,5 @@
 ---
 - name: exporting crontab
-  command: >
-    direnv exec . bundle exec whenever --update-crontab {{ deploy_application_name }}
+  shell: >
+    {{ env_param | default('') }} direnv exec . bundle exec whenever --update-crontab {{ deploy_application_name }}
     chdir={{ deploy_release_dir }}
